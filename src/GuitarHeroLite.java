@@ -8,7 +8,7 @@
  *  standard drawing window.
  *
  ****************************************************************************/
-
+//JacobGrady
 public class GuitarHeroLite {
 
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class GuitarHeroLite {
         double CONCERT_A = 440.0;
         double CONCERT_C = CONCERT_A * Math.pow(2, 3.0/12.0);
         GuitarString stringA = new GuitarString(CONCERT_A);
-        GuitarString stringC = new GuitarString(CONCERT_C);
+        GuitarString stringC = new GuitarString(CONCERT_C); 
 
         final double TEXT_POS_X = .2;
         final double TEXT_POS_Y = .5;
