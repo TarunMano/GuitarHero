@@ -2,8 +2,9 @@
 public class RingBuffer {
 		double[] list;
 		int size;
-	public RingBuffer(int i) {
-		list = new double[i];
+
+	public RingBuffer(int capacity) {
+		list = new double[capacity];
 		size = 0;
 	}
 
@@ -19,17 +20,23 @@ public class RingBuffer {
 	}
 
 	public double dequeue() {
-		
+		return 0;
 		
 	}
 
 	public boolean isFull() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public void enqueue(double d) {
-		// TODO Auto-generated method stub
+	public void enqueue(double x) {
+		
+	}
+	public double peek() {
+		return 0;
+		
+	}
+	public String toString() {
+		return null;
 		
 	}
 
