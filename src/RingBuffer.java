@@ -1,8 +1,10 @@
 
 public class RingBuffer {
 
-	public RingBuffer(int i) {
+	public RingBuffer(int capacity) {
 		// TODO Auto-generated constructor stub
+		
+		
 	}
 
 	public boolean isEmpty() {
@@ -15,7 +17,8 @@ public class RingBuffer {
 		return 0;
 	}
 
-	public void dequeue() {
+	public double dequeue() {
+		return 0;
 		// TODO Auto-generated method stub
 		
 	}
@@ -25,8 +28,16 @@ public class RingBuffer {
 		return false;
 	}
 
-	public void enqueue(double d) {
+	public void enqueue(double x) {
 		// TODO Auto-generated method stub
+		
+	}
+	public double peek() {
+		return 0;
+		
+	}
+	public String toString() {
+		return null;
 		
 	}
 
