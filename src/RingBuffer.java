@@ -12,7 +12,7 @@ public class RingBuffer {
 
 	public int size() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	public void dequeue() {
