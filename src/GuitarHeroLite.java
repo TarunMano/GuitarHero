@@ -8,7 +8,6 @@
  *  standard drawing window.
  *
  ****************************************************************************/
-//JacobGradyisStinky
 public class GuitarHeroLite {
 
     public static void main(String[] args) {
