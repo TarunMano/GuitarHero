@@ -4,6 +4,7 @@ public class RingBuffer {
 		int size;
 		int head;
 		int tail;
+		
 	public RingBuffer(int capacity) {
 		list = new double[capacity];
 		size = 0;
