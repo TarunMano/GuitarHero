@@ -2,8 +2,8 @@ import java.util.*;
 public class RingBuffer {
 		double[] list;
 		int size;
-		int head;
-		int tail;
+		int first;
+		int last;
 	public RingBuffer(int capacity) {
 		list = new double[capacity];
 		size = 0;
@@ -21,13 +21,17 @@ public class RingBuffer {
 	}
 
 	public double dequeue() {
-		if(size > 0) {
-			double a = list[head];
-			list[head] = 0;
+		if(size == 0){
+		throw new NoSuchElementException("buffer is empty");	
+		}
+
+		else if(size > 0) {
+			double a = list[first];
+			list[first] = 0;
 			size--;
-			head++;
-			if(head == list.length) {
-				head = 0;
+			first++;
+			if(first == list.length) {
+				first = 0;
 			}
 			return a;
 		}
@@ -43,6 +47,21 @@ public class RingBuffer {
 	}
 
 	public void enqueue(double x) {
+		if(size == list.length) {
+			throw new IllegalStateException("Cannot add to full");
+			}
+		else if(size == 0) {
+			list[0] = x;
+			first = 0;
+			last = 1;
+		}
+		else {
+			list[last] = x;
+			last++;
+			if(last == list.length) {
+				last = 0;
+			}
+		}
 
 	}
 	public double peek() {
