@@ -1,9 +1,13 @@
+
 import java.util.*;
 public class RingBuffer {
 		double[] list;
 		int size;
+		int head;
+		int tail;
 		int first;
 		int last;
+
 	public RingBuffer(int capacity) {
 		list = new double[capacity];
 		size = 0;
@@ -24,11 +28,13 @@ public class RingBuffer {
 		if(size == 0){
 		throw new NoSuchElementException("buffer is empty");	
 		}
+
 		else if(size > 0) {
 			double a = list[first];
 			list[first] = 0;
 			size--;
 			first++;
+			
 			if(first == list.length) {
 				first = 0;
 			}
@@ -56,9 +62,9 @@ public class RingBuffer {
 			size++;
 		}
 		else {
-			size++;
 			list[last] = x;
 			last++;
+			size++;
 			if(last == list.length) {
 				last = 0;
 			}
@@ -66,12 +72,54 @@ public class RingBuffer {
 
 	}
 	public double peek() {
-		return 0;
-		
+		if(size == 0){
+			throw new NoSuchElementException("buffer is empty");	
+			}
+		return list[first];
 	}
 	public String toString() {
-		return "hi";
-		
+		String a = "[";
+		if (size != 0) {
+		if (last == 0) {
+			for (int i = first; i < list.length; i++) {
+				if(i == list.length - 1) {
+					a = a + list[i];
+				}
+				else {
+					a = a + list[i] + ", ";
+				}
+			}
+		}
+		else if (last < first||last==first) {
+			for (int i = first; i < list.length; i++) {
+				a = a + list[i] + ", ";
+			}
+			for (int i = 0; i < last; i++) {
+				if(i == last-1) {
+					a = a + list[i];
+				}
+				else {
+					a = a + list[i] + ", ";
+				}
+			}
+		}
+		else {
+			for (int i = first; i < last; i++) {
+				if(i == last-1) {
+					a = a + list[i];
+				}
+				else {
+					a = a + list[i] + ", ";
+				}
+			}
+		}
+		a = a+"]";
+		return a;
+		}
+		else {
+			a = a+"]";
+			return a;
+		}
 	}
 
 }
