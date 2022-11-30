@@ -24,7 +24,8 @@ public class GuitarString {
 		
 	}
 
-	public double sample() {		return 0;
+	public double sample() {		
+	return 0;
 	}
 
 	public void tic() {

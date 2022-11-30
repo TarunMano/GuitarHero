@@ -11,9 +11,9 @@ public class RingBuffer {
 
 	public boolean isEmpty() {
 		if (size == 0) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	public int size() {
@@ -24,7 +24,6 @@ public class RingBuffer {
 		if(size == 0){
 		throw new NoSuchElementException("buffer is empty");	
 		}
-
 		else if(size > 0) {
 			double a = list[first];
 			list[first] = 0;
@@ -54,8 +53,10 @@ public class RingBuffer {
 			list[0] = x;
 			first = 0;
 			last = 1;
+			size++;
 		}
 		else {
+			size++;
 			list[last] = x;
 			last++;
 			if(last == list.length) {
@@ -69,7 +70,7 @@ public class RingBuffer {
 		
 	}
 	public String toString() {
-		return null;
+		return "hi";
 		
 	}
 
