@@ -1,10 +1,12 @@
-
+import java.util.*;
 public class RingBuffer {
 		double[] list;
 		int size;
 		int head;
 		int tail;
-		
+		int first;
+		int last;
+
 	public RingBuffer(int capacity) {
 		list = new double[capacity];
 		size = 0;
@@ -12,9 +14,9 @@ public class RingBuffer {
 
 	public boolean isEmpty() {
 		if (size == 0) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	public int size() {
@@ -22,13 +24,17 @@ public class RingBuffer {
 	}
 
 	public double dequeue() {
-		if(size > 0) {
-			double a = list[head];
-			list[head] = 0;
+		if(size == 0){
+		throw new NoSuchElementException("buffer is empty");	
+		}
+
+		else if(size > 0) {
+			double a = list[first];
+			list[first] = 0;
 			size--;
-			head++;
-			if(head == list.length) {
-				head = 0;
+			first++;
+			if(first == list.length) {
+				first = 0;
 			}
 			return a;
 		}
@@ -44,15 +50,48 @@ public class RingBuffer {
 	}
 
 	public void enqueue(double x) {
-		
+		if(size == list.length) {
+			throw new IllegalStateException("Cannot add to full");
+			}
+		else if(size == 0) {
+			list[0] = x;
+			first = 0;
+			last = 1;
+			size++;
+		}
+		else {
+			list[last] = x;
+			last++;
+			size++;
+			if(last == list.length) {
+				last = 0;
+			}
+		}
+
 	}
 	public double peek() {
-		return 0;
-		
+		if(size == 0){
+			throw new NoSuchElementException("buffer is empty");	
+			}
+		return list[first];
 	}
 	public String toString() {
-		return null;
-		
+		String a = "[";
+		if (last < first) {
+			for (int i = first; i < list.length; i++) {
+				a = a + list[i] + ", ";
+			}
+			for (int i = 0; i < last; i++) {
+				a = a + list[i] + ", ";
+			}
+		}
+		else {
+			for (int i = first; i < last; i++) {
+				a = a + list[i] + ", ";
+			}
+		}
+		a = a+"]";
+		return a;
 	}
 
 }
