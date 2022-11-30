@@ -1,4 +1,4 @@
-
+import java.util.*;
 public class RingBuffer {
 		double[] list;
 		int size;
@@ -29,7 +29,7 @@ public class RingBuffer {
 	}
 
 	public void enqueue(double x) {
-		
+
 	}
 	public double peek() {
 		return 0;
