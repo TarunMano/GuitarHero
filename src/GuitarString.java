@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class GuitarString {
-	public RingBuffer buffer;
+	public RingBuffer ringBuff;
 	public int counter; 
 	public double frequency;
     public double N;
@@ -11,15 +11,15 @@ public class GuitarString {
 	public GuitarString(double frequency) {
 		N = sampleRate/frequency;
 		N = Math.ceil(N);
-		buffer = new RingBuffer((int) N);
+		ringBuff = new RingBuffer((int) N);
 		for(int i = 0;i < N; i++) {
-			buffer.enqueue(0);
+			ringBuff.enqueue(0);
 		}
 	}
 	public GuitarString(double[] init) {
-		buffer = new RingBuffer(init.length);
+		ringBuff = new RingBuffer(init.length);
 		for(int i = 0; i < init.length;i++) {
-			buffer.enqueue(init[i]);
+			ringBuff.enqueue(init[i]);
 		}
 	}
 
@@ -28,19 +28,19 @@ public class GuitarString {
 		for(int i = 0; i < N; i++) {
 			Random rand = new Random();
 			double r = rand.nextDouble(0.5 - -0.5) + -0.5;
-			buffer.enqueue(r);
+			ringBuff.enqueue(r);
 		}
 	}
 
 	public double sample() {		
 		
-		return buffer.peek();
+		return ringBuff.peek();
 	}
 
 	public void tic() {
-		double x = buffer.dequeue();
-		double y = buffer.dequeue();
-		buffer.enqueue(0.994*((x+y)/2));
+		double x = ringBuff.dequeue();
+		double y = ringBuff.dequeue();
+		ringBuff.enqueue(0.994*((x+y)/2));
 		counter++;
 	}
 	public int time() {
