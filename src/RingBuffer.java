@@ -11,9 +11,9 @@ public class RingBuffer {
 
 	public boolean isEmpty() {
 		if (size == 0) {
-			return false;
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	public int size() {
@@ -54,10 +54,12 @@ public class RingBuffer {
 			list[0] = x;
 			first = 0;
 			last = 1;
+			size++;
 		}
 		else {
 			list[last] = x;
 			last++;
+			size++;
 			if(last == list.length) {
 				last = 0;
 			}
@@ -65,12 +67,28 @@ public class RingBuffer {
 
 	}
 	public double peek() {
-		return 0;
-		
+		if(size == 0){
+			throw new NoSuchElementException("buffer is empty");	
+			}
+		return list[first];
 	}
 	public String toString() {
-		return null;
-		
+		String a = "[";
+		if (last < first) {
+			for (int i = first; i < list.length; i++) {
+				a = a + list[i] + ", ";
+			}
+			for (int i = 0; i < last; i++) {
+				a = a + list[i] + ", ";
+			}
+		}
+		else {
+			for (int i = first; i < last; i++) {
+				a = a + list[i] + ", ";
+			}
+		}
+		a = a+"]";
+		return a;
 	}
 
 }
