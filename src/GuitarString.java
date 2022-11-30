@@ -16,7 +16,7 @@ public class GuitarString {
 		}
 	}
 	public GuitarString(double[] init) {
-		
+		//
 	}
 
 
