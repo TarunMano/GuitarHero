@@ -116,7 +116,7 @@ public class RingBufferTester {
         rb.enqueue(0.0);
         
         // test 15
-        System.out.print(rb + " expect [2.0, 3.0, 1.0, 0.0]: ");
+        System.out.print(rb + " expect [2.0, 3.0, 1.0, 0.0]: "+rb.size());
         if(rb.toString().equals("[2.0, 3.0, 1.0, 0.0]"))
             System.out.println("PASSED TEST 15");
         else

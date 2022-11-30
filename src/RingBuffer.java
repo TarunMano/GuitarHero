@@ -74,17 +74,37 @@ public class RingBuffer {
 	}
 	public String toString() {
 		String a = "[";
-		if (last < first) {
+		if (last == 0) {
+			for (int i = first; i < list.length; i++) {
+				if(i == list.length - 1) {
+					a = a + list[i];
+				}
+				else {
+					a = a + list[i] + ", ";
+				}
+			}
+		}
+		else if (last < first) {
 			for (int i = first; i < list.length; i++) {
 				a = a + list[i] + ", ";
 			}
 			for (int i = 0; i < last; i++) {
-				a = a + list[i] + ", ";
+				if(i == last-1) {
+					a = a + list[i];
+				}
+				else {
+					a = a + list[i] + ", ";
+				}
 			}
 		}
 		else {
 			for (int i = first; i < last; i++) {
-				a = a + list[i] + ", ";
+				if(i == last-1) {
+					a = a + list[i];
+				}
+				else {
+					a = a + list[i] + ", ";
+				}
 			}
 		}
 		a = a+"]";
