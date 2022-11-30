@@ -3,8 +3,11 @@ import java.util.*;
 public class RingBuffer {
 		double[] list;
 		int size;
+		int head;
+		int tail;
 		int first;
 		int last;
+
 	public RingBuffer(int capacity) {
 		list = new double[capacity];
 		size = 0;
