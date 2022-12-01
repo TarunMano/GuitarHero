@@ -1,6 +1,6 @@
 //Tarun Manoharan, Jacob Grady, Joaquin Olivo
 //cs3
-//ring buffer
+//ring buffe
 import java.util.*;
 public class RingBuffer {
 		double[] list;
