@@ -52,10 +52,10 @@ public class RingBuffer {
 	}
 
 	public void enqueue(double x) {
-		if(size == list.length) {
-			throw new IllegalStateException("Cannot add to full");
-			}
-		else if(size == 0) {
+//		if(size == list.length) {
+//			throw new IllegalStateException("Cannot add to full");
+//			}
+		 if(size == 0) {
 			list[0] = x;
 			first = 0;
 			last = 1;

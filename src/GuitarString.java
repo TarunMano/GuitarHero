@@ -38,7 +38,7 @@ public class GuitarString {
 
 	public void tic() {
 		double x = ringBuff.dequeue();
-		double y = ringBuff.dequeue();
+		double y = ringBuff.peek();
 		ringBuff.enqueue(0.994*((x+y)/2));
 		counter++;
 	}
