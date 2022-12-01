@@ -9,9 +9,9 @@ public class GuitarString {
     
 	public GuitarString(double frequency) {
 		N = sampleRate/frequency;
-		N = Math.ceil(N);
-		ringBuff = new RingBuffer((int) N);
-		for(int i = 0;i < N; i++) {
+		int n = (int)Math.ceil(N);
+		ringBuff = new RingBuffer(n);
+		for(int i = 0;i < n; i++) {
 			ringBuff.enqueue(0);
 		}
 	}
@@ -24,7 +24,7 @@ public class GuitarString {
 
 
 	public void pluck() {
-		for(int i = 0; i < ringBuff.size(); i++) {
+		for(int i = 0; i < N; i++) {
 			Random rand = new Random();
 			double r = rand.nextDouble(0.5 - -0.5) + -0.5;
 			ringBuff.enqueue(r);
@@ -38,7 +38,7 @@ public class GuitarString {
 
 	public void tic() {
 		double x = ringBuff.dequeue();
-		double y = ringBuff.dequeue();
+		double y = ringBuff.peek();
 		ringBuff.enqueue(0.994*((x+y)/2));
 		counter++;
 	}
