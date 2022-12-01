@@ -24,11 +24,14 @@ public class GuitarString {
 
 
 	public void pluck() {
+		
 		for(int i = 0; i < N; i++) {
-			Random rand = new Random();
-			double r = rand.nextDouble(0.5 - -0.5) + -0.5;
-			ringBuff.enqueue(r);
+			ringBuff.dequeue();
+			ringBuff.enqueue(Math.random()*1-.5);
+			System.out.println("pluck" + ringBuff.peek());
 		}
+		
+
 	}
 
 	public double sample() {		
@@ -38,7 +41,10 @@ public class GuitarString {
 
 	public void tic() {
 		double x = ringBuff.dequeue();
+//		System.out.println("x" + x);
 		double y = ringBuff.peek();
+//		System.out.println("y" + y);
+
 		ringBuff.enqueue(0.994*((x+y)/2));
 		counter++;
 	}
