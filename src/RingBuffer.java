@@ -3,8 +3,6 @@ import java.util.*;
 public class RingBuffer {
 		double[] list;
 		int size;
-		int head;
-		int tail;
 		int first;
 		int last;
 
@@ -28,7 +26,6 @@ public class RingBuffer {
 		if(size == 0){
 		throw new NoSuchElementException("buffer is empty");	
 		}
-
 		else if(size > 0) {
 			double a = list[first];
 			list[first] = 0;
@@ -52,10 +49,11 @@ public class RingBuffer {
 	}
 
 	public void enqueue(double x) {
-		if(size == list.length) {
-			throw new IllegalStateException("Cannot add to full");
-			}
-		else if(size == 0) {
+		System.out.println(size);
+//		if(size == list.length) {
+//			throw new IllegalStateException("Cannot add to full");
+//			}
+		if(size == 0) {
 			list[0] = x;
 			first = 0;
 			last = 1;
