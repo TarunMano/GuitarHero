@@ -3,8 +3,7 @@ import java.util.Random;
 public class GuitarString {
 	public RingBuffer ringBuff;
 	public int counter; 
-	public double frequency;
-    public double N;
+	public double N;
     public int sampleRate = 44100; 
     
     
@@ -25,7 +24,7 @@ public class GuitarString {
 
 
 	public void pluck() {
-		for(int i = 0; i < N; i++) {
+		for(int i = 0; i < ringBuff.size(); i++) {
 			Random rand = new Random();
 			double r = rand.nextDouble(0.5 - -0.5) + -0.5;
 			ringBuff.enqueue(r);
