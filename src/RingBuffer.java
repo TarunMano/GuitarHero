@@ -1,4 +1,6 @@
-
+//Tarun Manoharan, Jacob Grady, Joaquin Olivo
+//cs3
+//ring buffer
 import java.util.*;
 public class RingBuffer {
 		double[] list;
