@@ -49,25 +49,30 @@ public class RingBuffer {
 	}
 
 	public void enqueue(double x) {
-		System.out.println(size);
-//		if(size == list.length) {
-//			throw new IllegalStateException("Cannot add to full");
-//			}
+
+		if(size == list.length) {
+			throw new IllegalStateException("Cannot add to full");
+			}
 		if(size == 0) {
 			list[0] = x;
 			first = 0;
 			last = 1;
-			size++;
+			if (x != 0.0) {
+				size++;
+			}
 		}
 		else {
 			list[last] = x;
 			last++;
-			size++;
+			if (x != 0.0) {
+				size++;
+			}
 			if(last == list.length) {
 				last = 0;
 			}
 		}
-
+		System.out.println("size: " + size);
+		System.out.println("length: " + list.length);
 	}
 	public double peek() {
 		if(size == 0){
