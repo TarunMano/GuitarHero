@@ -1,7 +1,7 @@
 //Tarun Manoharan, Jacob Grady, Joaquin Olivo
 //cs3
 //guitar string
-import java.util.Random;
+
 
 public class GuitarString {
 	public RingBuffer ringBuff;
