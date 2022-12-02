@@ -7,7 +7,6 @@ public class RingBuffer {
 		int size;
 		int first;
 		int last;
-
 	public RingBuffer(int capacity) {
 		list = new double[capacity];
 		size = 0;
@@ -67,8 +66,8 @@ public class RingBuffer {
 		else {
 			list[last] = x;
 			last++;
-		
-				size++;
+			
+			size++;
 			
 			if(last == list.length) {
 				last = 0;
