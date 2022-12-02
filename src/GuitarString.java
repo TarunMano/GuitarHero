@@ -27,7 +27,6 @@ public class GuitarString {
 		for(int i = 0; i < N; i++) {
 			ringBuff.dequeue();
 			ringBuff.enqueue(Math.random()*1-.5);
-			
 		}
 	}
 
