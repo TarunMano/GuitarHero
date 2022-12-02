@@ -5,7 +5,6 @@ import java.util.*;
 public class RingBuffer {
 		double[] list;
 		int size;
-
 		int tail;
 		int first;
 		int last;
