@@ -5,7 +5,6 @@ import java.util.*;
 public class RingBuffer {
 		double[] list;
 		int size;
-		int tail;
 		int first;
 		int last;
 
@@ -29,7 +28,6 @@ public class RingBuffer {
 		if(size == 0){
 		throw new NoSuchElementException("buffer is empty");	
 		}
-
 		else if(size > 0) {
 			double a = list[first];
 			list[first] = 0;
@@ -53,21 +51,25 @@ public class RingBuffer {
 	}
 
 	public void enqueue(double x) {
+
 		if(size >= list.length) {
 			throw new IllegalStateException("Cannot add to full");
 			}
 		
-		else 
-		if(size == 0) {
+		else if(size == 0) {
 			list[0] = x;
 			first = 0;
 			last = 1;
-			size++;
+			if (x != 0.0) {
+				size++;
+			}
 		}
 		else {
 			list[last] = x;
 			last++;
-			size++;
+			if (x != 0.0) {
+				size++;
+			}
 			if(last == list.length) {
 				last = 0;
 			}

@@ -27,22 +27,24 @@ public class GuitarString {
 
 
 	public void pluck() {
-		
 		for(int i = 0; i < N; i++) {
 			ringBuff.dequeue();
 			ringBuff.enqueue(Math.random()*1-.5);
 
 		}
-		
-
 	}
 
 	public double sample() {		
-		
-		return ringBuff.peek();
+		if (ringBuff.size() > 0) {
+			return ringBuff.peek();
+		}
+		else {
+			return 0;
+		}
 	}
 
 	public void tic() {
+		if (ringBuff.size() > 0) {
 		double x = ringBuff.dequeue();
 //		System.out.println("x" + x);
 		double y = ringBuff.peek();
@@ -50,6 +52,7 @@ public class GuitarString {
 
 		ringBuff.enqueue(0.994*((x+y)/2));
 		counter++;
+		}
 	}
 	public int time() {
 		return counter;
