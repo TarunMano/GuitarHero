@@ -11,7 +11,7 @@ public class guitarHero {
         while (true) {
         	if (StdDraw.hasNextKeyTyped()) {
         		char key = StdDraw.nextKeyTyped();
-        		
+        		//k
         	}
         }
 	}
