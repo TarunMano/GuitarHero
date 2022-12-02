@@ -60,16 +60,16 @@ public class RingBuffer {
 			list[0] = x;
 			first = 0;
 			last = 1;
-			if (x != 0.0) {
+			
 				size++;
-			}
+			
 		}
 		else {
 			list[last] = x;
 			last++;
-			if (x != 0.0) {
+		
 				size++;
-			}
+			
 			if(last == list.length) {
 				last = 0;
 			}
