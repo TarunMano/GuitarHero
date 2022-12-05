@@ -1,13 +1,12 @@
-
+//Tarun Manoharan, Jacob Grady, Joaquin Olivo
+//cs3
+//ring buffe
 import java.util.*;
 public class RingBuffer {
 		double[] list;
 		int size;
-		int head;
-		int tail;
 		int first;
 		int last;
-
 	public RingBuffer(int capacity) {
 		list = new double[capacity];
 		size = 0;
@@ -28,7 +27,6 @@ public class RingBuffer {
 		if(size == 0){
 		throw new NoSuchElementException("buffer is empty");	
 		}
-
 		else if(size > 0) {
 			double a = list[first];
 			list[first] = 0;
@@ -52,21 +50,25 @@ public class RingBuffer {
 	}
 
 	public void enqueue(double x) {
+
 		if(size >= list.length) {
 			throw new IllegalStateException("Cannot add to full");
 			}
 		
-		else 
-		if(size == 0) {
+		else if(size == 0) {
 			list[0] = x;
 			first = 0;
 			last = 1;
-			size++;
+			
+				size++;
+			
 		}
 		else {
 			list[last] = x;
 			last++;
+			
 			size++;
+			
 			if(last == list.length) {
 				last = 0;
 			}
