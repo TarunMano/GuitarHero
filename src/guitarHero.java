@@ -1,6 +1,6 @@
 //Tarun Manoharan, Jacob Grady, Joaquin Olivo
 //CS3
-//Guitar Hero
+//GuitarHero
 public class guitarHero {
 	
 	public static void main(String[] args) {
