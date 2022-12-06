@@ -45,9 +45,6 @@ public class KeyboardHero {
          		list[i].tic();
         	 }
         	 n++;
-//        	 if(n == 24) {
-//        		 break;
-//        	 }
         }
 	}
 
