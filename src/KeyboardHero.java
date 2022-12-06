@@ -16,24 +16,38 @@ public class KeyboardHero {
 	private static void play(GuitarString[]list, String keyboard, String letters) { 
 		char[]keyb = keyboard.toCharArray();
 		String [] keyBo = letters.split("");
+		char[] keyB = letters.toCharArray();
+		final double TEXT_POS_X = .5;
+        final double TEXT_POS_Y = .5;
+        
 		int n = 0;
+		StdDraw.text(TEXT_POS_X,TEXT_POS_Y, keyBo[n]);
+		n++;
         while (true) {
         	
-        	final double TEXT_POS_X = .5;
-	        final double TEXT_POS_Y = .5;
-	       
+        	
+	      
+
         	if (StdDraw.hasNextKeyTyped()) {
-        		StdDraw.text(TEXT_POS_X,TEXT_POS_Y, keyBo[n]);
+        		
         		char key = StdDraw.nextKeyTyped();
         		int count = 0;
         		for(char c:keyb) {
         			if(key==c) {
+//        				if(keyB[count]==c) {
+        					StdDraw.clear();
+                    		StdDraw.text(TEXT_POS_X,TEXT_POS_Y, keyBo[n]);
+//        				}
+        				
         				list[count].pluck();
         				System.out.println(count);
         			}
         			count++;
         		}
+        		n++;
+           		
         	}
+
         	double sample = 0.0;
         	for(int i = 0; i < 37;i++) {
         		 
@@ -44,7 +58,10 @@ public class KeyboardHero {
         	 for(int i = 0; i < 37;i++) {
          		list[i].tic();
         	 }
-        	 n++;
+        	
+
+        	 
+        
         }
 	}
 
