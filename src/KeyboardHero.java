@@ -36,18 +36,22 @@ public class KeyboardHero {
         		
         		for(char c:keyb) {
         			if(key==c) {
-        				System.out.println(keyB[keyCount]);
         				System.out.println(keyCount);
         				
-        				if(keyB[keyCount]==c) {
-        					if(keyCount == 25) {
+        				if(c == keyB[keyCount]) {
+        					if(keyCount == 24) {
+        						
+        						
         						StdDraw.clear();
         					}
         					else {
+                        	
+        		        	keyCount++;
         					StdDraw.clear();
         					
                     		StdDraw.text(TEXT_POS_X,TEXT_POS_Y, keyBo[n]);
-                    		keyCount++;
+    		        		n++;
+
         					}
         				}
         				
@@ -57,7 +61,6 @@ public class KeyboardHero {
         			}
         			count++;
         		}
-        		n++;
            		
         	}
 
