@@ -1,14 +1,18 @@
 
 public class AutoGuitar {
 	public static void main(String[] args) {
-		String Keys = "uo[dcdz[vccdcdz[pzcvbvczbmbcvc=cvdczd=bvcdzd=[zcmnbvcz=vbc";
+		//Mariah carey
+//		String Keys = "uo[dcdz[vccdcdz[pzcvbvczbmbcvc=cvdczd=bvcdzd=[zcmnbvcz=vbcaa";
+		//Mary had a little lamb
+//		String Keys = "iuyuaiiiauuuippaiuyuiiiauuiuy";
+		//jingle bells
+		String Keys = "tttttttuertyyyyytttttrrtrutttttttuertyyyyytttttrrtrutttttttuertyyyyytttttrrtru";
 		 GuitarString[] list = new GuitarString[37];
 		 for (int i = 1; i <= list.length; i++) {
 			 list[i-1] = new GuitarString(440.0*(Math.pow(1.05956, i - 25)));
 			 
 		 }
-		 final double TEXT_POS_X = .5;
-	     final double TEXT_POS_Y = .5;
+		 
 	        
 	   
 		 play(list, Keys);
@@ -20,10 +24,12 @@ public class AutoGuitar {
 		char[]KeyBo = Key.toCharArray();
 		Stopwatch stop = new Stopwatch();
 		int n = 0;
+		double x = 0.0;
+		double y = 1;
        while (true) {
-    	   int stop1 = (int)stop.elapsedTime();
+    	   double stop1 = stop.elapsedTime();
 //    	   System.out.println(stop.elapsedTime());
-       	if (stop1 % 2 == 0) {
+       	if (stop1>x&&stop1<y) {
        		System.out.println(stop1);
 //       		System.out.println(KeyBo[n]);
        		char key = KeyBo[n];
@@ -36,6 +42,8 @@ public class AutoGuitar {
        			count++;
        			
        		}
+       		x+=.5;
+       		y+=.5;
        		n++;
        	}
        	double sample = 0;
