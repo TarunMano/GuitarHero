@@ -1,4 +1,6 @@
-
+//Tarun Manoharan, Jacob Grady, Joaquin Olivo
+//CS3
+//Auto Guitar 
 public class AutoGuitar {
 	public static void main(String[] args) {
 		//Mariah carey
